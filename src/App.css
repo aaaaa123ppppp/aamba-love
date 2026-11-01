@@ -1,0 +1,682 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #190914;
+  font-family: 'Poppins', sans-serif;
+}
+
+.romantic-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff0f4;
+  background:
+    radial-gradient(circle at 50% 20%, #6d2949, transparent 45%),
+    linear-gradient(135deg, #190914, #351326, #160a12);
+}
+
+.glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: .23;
+  pointer-events: none;
+}
+
+.glow-one {
+  background: #ff5c99;
+  top: 5%;
+  left: -120px;
+}
+
+.glow-two {
+  background: #a45bff;
+  bottom: 0;
+  right: -120px;
+}
+
+.glow-three {
+  background: #ff91b5;
+  top: 55%;
+  left: 40%;
+  width: 200px;
+  height: 200px;
+}
+
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.welcome,
+.memory-screen {
+  width: 100%;
+  max-width: 850px;
+  text-align: center;
+  animation: fadeIn 1.3s ease;
+}
+
+.top-heart,
+.opened-heart {
+  font-size: 48px;
+  color: #ffb3cc;
+  animation: heartbeat 1.5s infinite;
+}
+
+.small-heading {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #f4a9c1;
+  margin: 20px 0;
+}
+
+.welcome-title,
+.memory-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(55px, 9vw, 95px);
+  font-weight: 400;
+  color: #ffe0eb;
+  text-shadow: 0 0 30px #ff80ac;
+}
+
+.welcome-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  line-height: 1.8;
+  color: #f3cbd8;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Animated diary */
+
+.diary-container {
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+  perspective: 1000px;
+}
+
+.diary-book {
+  width: 215px;
+  height: 250px;
+  position: relative;
+  transform: rotate(-5deg);
+  animation: diaryFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 20px 25px #0008);
+}
+
+.diary-spine {
+  position: absolute;
+  width: 18px;
+  height: 100%;
+  left: 0;
+  background: #8d3459;
+  border-radius: 8px 0 0 8px;
+}
+
+.diary-cover {
+  position: absolute;
+  left: 15px;
+  right: 0;
+  height: 100%;
+  border: 2px solid #f0a8c0;
+  border-radius: 5px 14px 14px 5px;
+  background: linear-gradient(135deg, #a13e68, #511d38);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 25px #ffb1cc22;
+}
+
+.cover-decoration {
+  font-size: 35px;
+  color: #ffc7d8;
+}
+
+.cover-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 37px;
+  color: #ffe1eb;
+  margin-top: 15px;
+}
+
+.cover-heart {
+  font-size: 38px;
+  color: #ffb5cc;
+  margin: 10px;
+}
+
+.cover-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #f9c9d9;
+}
+
+@keyframes diaryFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-13px) rotate(-2deg);
+  }
+}
+
+/* Buttons */
+
+.open-button {
+  background: linear-gradient(120deg, #ffb4cc, #f47ba4);
+  color: #45182d;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 30px #ff8eaf55;
+  transition: .3s;
+}
+
+.open-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #ff8eafaa;
+}
+
+.bottom-hint {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #d9a7b9;
+}
+
+.welcome-footer {
+  margin-top: 45px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #e8b1c5;
+}
+
+/* Floating hearts */
+
+.floating-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  color: #ff9cba;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: .65;
+  }
+  85% {
+    opacity: .45;
+  }
+  100% {
+    transform: translateY(-115vh) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Typed diary note */
+
+.typed-note {
+  max-width: 680px;
+  margin: 35px auto 85px;
+  padding: 42px clamp(22px, 6vw, 55px);
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 36px,
+      #d8c3c0 37px
+    ),
+    #fff8ed;
+  color: #63364a;
+  border-radius: 5px;
+  box-shadow: 0 20px 70px #0008;
+  text-align: left;
+  animation: photoAppear 1.2s ease;
+}
+
+.typed-note-date {
+  text-align: right;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: #966079;
+}
+
+.typed-note h2 {
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 43px;
+  color: #bd6085;
+  font-weight: 400;
+  margin: 22px 0 30px;
+}
+
+.typed-note-lines {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  line-height: 1.9;
+}
+
+.typed-note-lines p {
+  margin-bottom: 10px;
+}
+
+.typed-note-signature {
+  text-align: right;
+  font-family: 'Great Vibes', cursive;
+  font-size: 35px;
+  color: #9d4269;
+  margin-top: 35px;
+}
+
+.memory-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  color: #edb6ca;
+  margin: 20px 0 35px;
+}
+
+@keyframes photoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* Personal messages */
+
+.love-message,
+.surprise-message {
+  max-width: 720px;
+  margin: 70px auto;
+  padding: 45px clamp(22px, 6vw, 50px);
+  border: 1px solid #e6a0ba55;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #ffffff12, #ffb2cc0b);
+  box-shadow: 0 15px 55px #0003;
+  animation: fadeIn 2s ease;
+}
+
+.message-heart,
+.sparkle {
+  font-size: 42px;
+  color: #ffb4cc;
+  animation: heartbeat 1.5s infinite;
+}
+
+.love-message h2,
+.surprise-message h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 6vw, 55px);
+  font-weight: 400;
+  color: #ffc6d9;
+  margin: 20px 0 30px;
+}
+
+.message-text,
+.surprise-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  line-height: 1.9;
+  color: #f6d8e2;
+}
+
+.message-text p,
+.surprise-text p {
+  margin-bottom: 22px;
+}
+
+.highlight-line {
+  color: #ffc3d8;
+  font-style: italic;
+  font-size: 25px;
+}
+
+.message-divider {
+  color: #ffabc7;
+  font-size: 28px;
+  margin: 35px 0;
+  letter-spacing: 10px;
+}
+
+.surprise-message h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #ffc5d8;
+  margin-bottom: 20px;
+}
+
+.final-romantic-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.8;
+  color: #ffe1ea;
+}
+
+/* Original diary photo */
+
+.photo-section {
+  max-width: 650px;
+  margin: 90px auto;
+  padding: 35px 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.photo-heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  font-weight: 400;
+  color: #ffc6d9;
+  margin: 20px 0;
+}
+
+.photo-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: #f3cbd8;
+  margin-bottom: 35px;
+}
+
+.photo-frame {
+  background: #fff4eb;
+  padding: 18px;
+  border-radius: 5px;
+  box-shadow: 0 20px 70px #0008, 0 0 30px #ff9bb755;
+  transform: rotate(-1deg);
+  animation: photoAppear 1.5s ease;
+}
+
+.diary-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 850px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.photo-top,
+.photo-bottom {
+  color: #9b4a6a;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  padding: 14px;
+}
+
+.photo-caption {
+  margin-top: 35px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  font-style: italic;
+  color: #ffc6d9;
+  line-height: 1.7;
+}
+
+/* Existing romantic ending */
+
+.ending {
+  margin-top: 90px;
+  padding-bottom: 50px;
+}
+
+.ending-hearts {
+  color: #ffb1c9;
+  font-size: 28px;
+  letter-spacing: 12px;
+}
+
+.ending-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 23px;
+  line-height: 1.7;
+  margin: 18px 0;
+  color: #f5c4d4;
+}
+
+.ending h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(48px, 8vw, 78px);
+  font-weight: 400;
+  color: #ffc6d9;
+  text-shadow: 0 0 25px #ff80ac66;
+  margin-top: 35px;
+}
+
+.big-heart {
+  font-size: 50px;
+  margin-top: 15px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.ending-small {
+  color: #e5b2c5;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.last-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 23px;
+  color: #ffc4d8;
+  margin-top: 35px;
+}
+
+/* Final collage and apology */
+
+.lifetime-section {
+  max-width: 850px;
+  margin: 90px auto 30px;
+  padding: 35px 20px 60px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.lifetime-heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 7vw, 58px);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #ffc6d9;
+  margin: 20px 0 30px;
+  text-shadow: 0 0 25px #ff80ac55;
+}
+
+.lifetime-photo-frame {
+  padding: 12px;
+  background: #fff4eb;
+  border-radius: 12px;
+  box-shadow: 0 20px 70px #0008, 0 0 30px #ff9bb755;
+  transform: rotate(-0.5deg);
+  margin: 0 auto 45px;
+}
+
+.lifetime-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.apology-message {
+  max-width: 760px;
+  margin: 45px auto 0;
+  padding: 42px clamp(22px, 6vw, 50px);
+  border: 1px solid #e6a0ba66;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #ffffff14, #ffb2cc0d);
+  box-shadow: 0 15px 55px #0004;
+  color: #f8dce5;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  line-height: 1.9;
+}
+
+.apology-message h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 6vw, 55px);
+  font-weight: 400;
+  color: #ffc6d9;
+  margin: 18px 0 28px;
+}
+
+.apology-message p {
+  margin: 0 0 22px;
+}
+
+.apology-message h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  line-height: 1.7;
+  font-weight: 600;
+  color: #ffc5d8;
+  margin: 30px 0;
+}
+
+.apology-signature {
+  margin-top: 35px;
+  color: #ffc6d9;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+.apology-signature strong {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffe0eb;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 35px 15px;
+  }
+
+  .diary-book {
+    transform: scale(.9) rotate(-5deg);
+  }
+
+  .typed-note {
+    padding: 35px 22px;
+  }
+
+  .photo-frame {
+    padding: 10px;
+  }
+
+  .love-message,
+  .surprise-message {
+    padding: 35px 22px;
+  }
+
+  .message-text,
+  .surprise-text {
+    font-size: 21px;
+  }
+
+  .lifetime-section {
+    margin-top: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .lifetime-photo-frame {
+    padding: 7px;
+  }
+
+  .apology-message {
+    padding: 32px 22px;
+    font-size: 20px;
+  }
+
+  .apology-message h3 {
+    font-size: 24px;
+  }
+
+  .apology-signature strong {
+    font-size: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
