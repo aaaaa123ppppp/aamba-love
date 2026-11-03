@@ -680,3 +680,228 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Page navigation and the new true-feelings letter */
+
+.love-page-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 auto 42px;
+  padding: 10px;
+  border: 1px solid #f4b4ca55;
+  border-radius: 999px;
+  background: #260f1d99;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.nav-link {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 12px 20px;
+  background: transparent;
+  color: #f6c8d8;
+  font: 500 13px 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #4b1b31;
+  background: linear-gradient(120deg, #ffd2e0, #f28caf);
+  box-shadow: 0 0 22px #ff9fbd44;
+}
+
+.true-feelings-page {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding-bottom: 65px;
+  animation: fadeIn 1s ease;
+}
+
+.feelings-intro {
+  max-width: 680px;
+  margin: 22px auto 35px;
+  color: #f5cbd9;
+  font: italic 24px/1.7 'Cormorant Garamond', serif;
+}
+
+.feelings-letter {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 48px clamp(24px, 6vw, 58px);
+  border: 1px solid #f1b4ca77;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 10% 0%, #ffbfd51c, transparent 38%),
+    linear-gradient(145deg, #fff8f00f, #ffb2cc12);
+  box-shadow: 0 20px 65px #0005, inset 0 0 35px #ffcada08;
+  text-align: left;
+  color: #f8dce5;
+  font: 23px/1.95 'Cormorant Garamond', serif;
+}
+
+.feelings-letter p {
+  margin: 0 0 24px;
+}
+
+.feelings-letter .feelings-highlight {
+  color: #ffd0df;
+  font-style: italic;
+  font-size: 25px;
+  text-align: center;
+  margin: 36px 0;
+}
+
+.feelings-signoff {
+  margin-top: 42px;
+  padding-top: 25px;
+  border-top: 1px solid #f2b4cb55;
+  color: #f7c8d9;
+  font: italic 23px/1.8 'Cormorant Garamond', serif;
+  text-align: right;
+}
+
+.feelings-signoff strong {
+  display: block;
+  margin-top: 5px;
+  color: #ffe0eb;
+  font: 42px 'Great Vibes', cursive;
+}
+
+.back-to-memory {
+  margin-top: 32px;
+}
+
+/* Persistent music control */
+
+.music-player {
+  position: fixed;
+  z-index: 9999;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 30px);
+  padding: 11px 13px 11px 16px;
+  border: 1px solid #ffc0d477;
+  border-radius: 999px;
+  background: #321426ed;
+  box-shadow: 0 8px 30px #0007, 0 0 25px #ff9fbd22;
+  backdrop-filter: blur(14px);
+}
+
+.music-player-copy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffe0eb;
+}
+
+.music-note {
+  color: #ffb8d0;
+  font-size: 23px;
+  animation: musicPulse 1.8s ease-in-out infinite;
+}
+
+.music-player-copy strong,
+.music-player-copy small {
+  display: block;
+  text-align: left;
+}
+
+.music-player-copy strong {
+  font: 500 12px 'Poppins', sans-serif;
+}
+
+.music-player-copy small {
+  margin-top: 2px;
+  color: #e8b6c9;
+  font: 10px 'Poppins', sans-serif;
+}
+
+.music-toggle {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  color: #4b1b31;
+  background: linear-gradient(135deg, #ffd4e2, #f28caf);
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 18px #ff9fbd44;
+  transition: transform .2s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.08);
+}
+
+.music-notice {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 9px);
+  white-space: nowrap;
+  padding: 7px 11px;
+  border: 1px solid #ffc0d455;
+  border-radius: 12px;
+  background: #321426ed;
+  color: #ffe0eb;
+  font: 11px 'Poppins', sans-serif;
+}
+
+@keyframes musicPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: .8;
+  }
+  50% {
+    transform: scale(1.16);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .love-page-nav {
+    border-radius: 22px;
+    gap: 5px;
+    padding: 7px;
+    margin-bottom: 30px;
+  }
+
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .feelings-intro {
+    font-size: 21px;
+  }
+
+  .feelings-letter {
+    padding: 32px 23px;
+    font-size: 21px;
+    line-height: 1.8;
+  }
+
+  .feelings-letter .feelings-highlight {
+    font-size: 23px;
+  }
+
+  .feelings-signoff strong {
+    font-size: 38px;
+  }
+
+  .music-player {
+    right: 12px;
+    bottom: 12px;
+    gap: 10px;
+    padding: 9px 10px 9px 13px;
+  }
+}
